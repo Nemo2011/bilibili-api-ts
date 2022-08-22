@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": ".",
+        "declaration": true,
+        "declarationDir": "."
+    }, 
+    "include": [
+        "."
+    ], 
+    "exclude": [
+        
+    ]
+}
