@@ -1,4 +1,4 @@
-+ [主页](/README-ts.md)
++ [主页](/README.md)
 + [获取 Credential 类所需信息](/ts/get-credential.md)
 + API 示例
 + [视频](/ts/examples/video.md)

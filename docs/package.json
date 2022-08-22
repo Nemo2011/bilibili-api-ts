@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nemo2011/bilibili-api.git"
+        "url": "git+https://github.com/nemo2011/bilibili-api-ts.git"
     },
     "keywords": [],
     "author": "",
