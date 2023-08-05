@@ -112,7 +112,7 @@ export async function request(
   };
   var headers = DEFAULT_HEADERS;
 
-  if (!no_csrf && method in ["POST", "DELETE", "PATCH"]){
+  if (!no_csrf && ["POST", "DELETE", "PATCH"].includes(method)){
     if (data === null){
       data = {};
     }
