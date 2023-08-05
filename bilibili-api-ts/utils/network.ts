@@ -81,7 +81,7 @@ export async function get_session({credential=new Credential({})}: {credential: 
 
 export async function request(
   {
-    method, url, params={}, data={}, credential=new Credential({}), no_csrf=false
+    method, url, params={}, data={}, credential=new Credential({}), no_csrf=false, useFormUrlEncoded=false
   } : 
   {
     method: string, 
@@ -89,7 +89,8 @@ export async function request(
     params?: any, 
     data?: any, 
     credential?: Credential|null, 
-    no_csrf?: boolean
+    no_csrf?: boolean,
+    useFormUrlEncoded?: boolean,
   }
 ) {
   if (no_csrf === null || no_csrf === undefined) {
@@ -112,12 +113,16 @@ export async function request(
   };
   var headers = DEFAULT_HEADERS;
 
-  if (!no_csrf && method in ["POST", "DELETE", "PATCH"]){
+  if (!no_csrf && ["POST", "DELETE", "PATCH"].includes(method)){
     if (data === null){
       data = {};
     }
     data["csrf"] = credential.bili_jct;
     data["csrf_token"] = credential.bili_jct;
+    if (useFormUrlEncoded) {
+      headers['content-type'] = 'application/x-www-form-urlencoded';
+      data = stringify(data);
+    }
   }
 
   if (params === null) {
